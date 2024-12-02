@@ -660,3 +660,23 @@ B obj(5);
 std::cout << obj.value;
 ```
 Ответ:<code> 5 </code>
+
+40) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+```cpp
+class A{
+public:
+    void set_value(int value){
+        this->value = value;
+    }
+};
+
+class B: public A{
+public:
+    int value = 1;
+};
+
+B obj;
+obj.set_value(5);
+std::cout << obj.value;
+```
+Ответ:<code> Ошибка </code>
