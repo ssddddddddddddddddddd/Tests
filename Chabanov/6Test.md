@@ -639,3 +639,39 @@ int main() {
 }
 ```
 > Ответ: <code>1</code>
+
+46) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+int i = 1;
+
+namespace C{
+    int i = 2;
+}
+
+namespace A {
+    int i = 3;
+    namespace B {
+        using C::i;
+        void print() {
+            std::cout << i;
+        }
+    }
+}
+
+int main() {
+    A::B::print();
+}
+```
+> Ответ: <code>2</code>
+
+47) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+namespace A{
+    int i = 1;
+}
+
+int main() {
+    std::cout << i;
+}
+```
+> Ответ: <code>Ошибка</code>
