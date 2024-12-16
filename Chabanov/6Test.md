@@ -298,3 +298,255 @@ int main() {
 }
 ```
 > Ответ: <code>Ошибка</code>
+
+
+
+/////////
+
+
+22) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+int i = 1;
+
+namespace A {
+    namespace B {
+        int i = 2;
+        void print() {
+            std::cout << i;
+        }
+    }
+}
+
+int main() {
+    int i = 3;
+    A::B::print();
+}
+```
+> Ответ: <code>2</code>
+
+23) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+int i = 1;
+
+namespace C{
+    int i = 2;
+}
+
+namespace A {
+    int i = 3;
+    namespace B {
+        using namespace C;
+        void print() {
+            std::cout << i;
+        }
+    }
+}
+
+int main() {
+    A::B::print();
+}
+```
+> Ответ: <code>3</code>
+
+24) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+int main(){
+    const int i = 1;
+    {
+        int i = i;
+        std::cout << i;
+    }
+}
+```
+> Ответ: <code>Мусор. Т.к. i неинициализированная переменная</code>
+
+25) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+int main() {
+    std::cout << i;
+}
+
+int i = 1;
+```
+> Ответ: <code>Ошибка</code>
+
+26) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+int A(){
+    int i = 1;
+}
+
+int main() {
+    int i = 2;
+    std::cout << A::i;
+}
+```
+> Ответ: <code>Ошибка</code>
+
+27) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+int main() {
+    const int i = 1;
+    {
+        int i[i] = {};
+    }
+    std::cout << i;
+}
+```
+> Ответ: <code>1</code>
+
+28) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+namespace A{
+    int i = 1;
+}
+
+int i = 2;
+
+int main() {    
+    std::cout << i;
+}
+```
+> Ответ: <code>2</code>
+
+29) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+int i = 1;
+
+int main() {
+    std::cout << i;
+    int i = 2;
+    {
+        std::cout << i;
+        int i = 3;
+    }
+    std::cout << i;
+}
+```
+> Ответ: <code>122</code>
+
+30) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+namespace A{
+    int i = 1;
+}
+
+int i = 2;
+
+int main() {
+    int i = 3;
+    {
+      using namespace A;      
+      std::cout << i;
+    }
+}
+```
+> Ответ: <code>3</code>
+
+31) Дан кода на Go. Что будет напечатано в результате его выполнения?
+```cpp
+package main
+import "fmt"
+
+func main() {
+    fmt.Print(i)
+}
+
+var i int = 1
+```
+> Ответ: <code>1</code>
+
+32) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+inline namespace A{
+    int i = 1;
+}
+
+int i = 2;
+
+int main() {
+    std::cout << i;
+}
+```
+> Ответ: <code>Ошибка</code>
+
+33) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+namespace A{
+    int i = 1;
+}
+
+int main() {
+    using A::i;
+    int i = 2;
+    std::cout << i;
+}
+```
+> Ответ: <code>Ошибка</code>
+
+34) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+void A(){
+    std::cout << i;  
+}
+
+int i = 1;
+
+int main() {
+    A();
+}
+```
+> Ответ: <code>Ошибка</code>
+
+35) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+namespace A{
+    int i = 1;
+}
+
+int main() {
+    using namespace A;
+    std::cout << i;
+    int i = 2;
+}
+```
+> Ответ: <code>1</code>
+
+36) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+int main(){
+    bool i = true;
+    {
+        int i = 5;
+        i = !i;
+        std::cout << i;
+    }
+}
+```
+> Ответ: <code>0</code>
+
+37) Дан фрагмент кода на С++. Что будет напечатано в результате его выполнения?
+```cpp
+namespace D{
+    int i = 1;
+}
+
+namespace C{
+    using namespace D;
+}
+
+namespace A {
+    namespace B {
+        using namespace C;
+        void print() {
+            std::cout << i;
+        }
+    }
+    int i = 3;
+}
+
+int main() {
+    A::B::print();
+}
+```
+> Ответ: <code>1</code>
