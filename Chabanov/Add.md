@@ -272,29 +272,6 @@ func main() {
 
 ---
 
-16) Язык Go. Что будет выведено на экран в результате работы этого кода?<br>
-```go
-package main
-import "fmt"
-
-type Data struct{
-    i int
-}
-
-func (d Data) method(){
-    d.i = 1
-}
-
-func main() {
-    var d *Data = &Data{}
-    d.method()
-    fmt.Print(d.i)
-}
-```
->0
-
----
-
 17) Дан фрагмент кода на С++.<br>
 ```cpp
 class SomeClass{
@@ -346,15 +323,6 @@ type Point struct{
 >fmt.Print( p.x )</br>
 
 >fmt.Print( (&p).x )</br>
-
----
-
-20) Дан фрагмент кода на С++. Что будет содержать переменная container после его выполнения?<br>
-```cpp
-std::unordered_set<int> container{1, 2, 3, 4};
-container.insert(container.begin(), 4);
-```
->1, 2, 3, 4</br>
 
 ---
 
