@@ -12,12 +12,12 @@
 
 > ```cpp
 >struct {
->    int a;
->} s
+>     int a;
+>} s;
 >```
 > ```cpp
 > struct a_struct{
->    int a;
+>     int a;
 >};
 > ```
 
@@ -45,6 +45,42 @@ std::map<int, int> container{{1, 2}, {3, 2}};
 container[-1] = 5;
 ```
 >Пары: -1:5, 1:2, 3:2
+---
+
+5) Язык Go. Что из нижеперечисленного приведёт к объявлению структуры?<br>
+
+>```cpp
+>var Address struct {
+>     Name    string
+>     City    string
+>     Pincode int
+>}
+>```
+>```cpp
+>pizza := struct {
+>     address string 
+>     name string
+>     cost int
+>}{
+>     address: "address",
+>     name:    "Pizza",
+>     cost:    100,
+>}
+>```
+>```cpp
+>type Employee struct {
+>     name string
+>     age int
+>}
+>```
+>```cpp
+>type Mail = struct {
+>     Address string
+>     Message string
+>     Code int
+>}
+>```
+
 
 ---
 
@@ -57,12 +93,12 @@ container.insert(container.begin(), 4);
 
 ---
 
-7) Дан фрагмент кода на С++. Что будет содержать переменная container после его выполнения?<br>
+7) Дан фрагмент кода на Go. Что будет содержать переменная container после его выполнения?<br>
 ```cpp
-std::set<int> container{1, 2, 3, 4};
-container.insert(container.begin(), 4);
+var container map[int]int
+container[-1] = 1
 ```
->
+>Ошибка во время исполнения - под словарь не выделена память
 
 ---
 
@@ -175,9 +211,9 @@ func main() {
 ```
 Что нужно добавить, чтобы он стал рабочим?</br>
 
->```cpp
+>```go
 >func (a *A) print(){
->    fmt.Print(a.value)
+>     fmt.Print(a.value)
 >}
 
 ---
@@ -1027,19 +1063,19 @@ const SomeClass s;
 
 >```cpp
 >struct Point{
->    int x,y;
+>     int x,y;
 >} p1, p2;
 >```
 >```cpp
 >struct Point{
->    int x,y;
+>     int x,y;
 >};
 >
 >Point p1, p2;
 >```
 >```cpp
 >struct{
->    int x,y;
+>     int x,y;
 >} p1, p2;
 >```
 
@@ -1462,6 +1498,8 @@ enum Color {
     GREEN = 2
 };
 ```
+>Color mix = Color(YELLOW + PINK); // mix будет равно BLACK
+
 >int i = YELLOW + PINK; // i будет равно 0
 
 ---
@@ -1503,3 +1541,369 @@ if (obj) std::cout << 1;
 else std::cout << 2;
 ```
 >2
+
+---
+
+85) Язык С++. Какая структура называется анонимной?<br>
+
+>```cpp
+>struct {
+>     int x,y;
+>} s;
+>```
+---
+
+86) Дан фрагмент кода на языке С++. Выберите верные утверждения.
+```cpp
+enum class Color {
+    YELLOW = -1,
+    BLACK = 0,
+    PINK = 1,
+    GREEN = 2
+};
+```
+>Во всех остальных вариантах будет ошибка, т.к. для Color не определены операторы + и/или =
+---
+
+87) Код на С++. Сколько конструкторов может быть у класса?
+>Сколько угодно
+---
+
+88) Дан фрагмент кода на С++. Что будет на экране в результате выполнения данного фрагмента?
+```cpp
+class MyClass{
+public:
+    double i = 1.0;
+    void operator*(double b){
+        i * b;
+    }
+};
+
+MyClass obj;
+std::cout << obj * 1.0;
+```
+>Ошибка
+---
+
+89) Язык С++. Дан тип данных и прототип функции:
+```cpp
+struct Point{
+    int x,y;
+};
+
+void foo(Point p);
+```
+Если передать переменную типа Point в функцию foo указанным выше образом, то:<br>
+
+>Внутри функции будет доступна копия структуры;
+---
+
+90) Язык С++. Что из перечисленного является правильным объявлением и определением класса?<br>
+
+>class SomeClass{};
+
+>struct SomeClass{};
+
+---
+
+91) Дан фрагмент кода на языке С++:
+```cpp
+enum class Color {
+    YELLOW = 0,
+    BLACK = 1,
+    PINK = 2
+};
+Color color = Color::BLACK;
+```
+и функция с представленным ниже прототипом:
+```cpp
+void foo(Color clr);
+```
+Какой вариант вызова функции НЕ приведёт к ошибке?<br>
+
+>foo(color);
+
+>foo(Color::YELLOW);
+
+>foo(Color(1));
+
+---
+
+92) Дан фрагмент кода на С++. Что будет на экране в результате выполнения данного фрагмента?
+```cpp
+class MyClass{
+public:
+    double i = 1.0;
+    double operator*(double b){
+        return i * b;
+    }
+};
+
+MyClass obj;
+std::cout << obj * 1.0;
+```
+
+>1
+---
+
+93) Дан фрагмент кода на языке С++:
+```cpp
+struct One{
+    int x,y;
+} a;
+
+struct Two{
+    int x,y;
+} b;
+```
+Допустим ли следующий код?
+```cpp
+a = {1, 2};
+b = a;
+```
+
+>Нет, т.к. у a и b разные типы;
+
+---
+
+94) Язык С++. Где можно объявить/определить новый класс?<br>
+
+>В глобальной области видимости
+
+>Внутри конструкции блок {}
+
+>В теле функции
+
+>Внутри других классов
+
+---
+
+95) Дан фрагмент кода на языке С++:
+```cpp
+enum Color {
+    YELLOW = 0,
+    BLACK = 1,
+    PINK = 2
+};
+Color color = Color::BLACK;
+```
+и функция с представленным ниже прототипом:
+```cpp
+void foo(Color clr);
+```
+Какой вариант вызова функции НЕ приведёт к ошибке?<br>
+
+>foo(color);
+
+>foo(Color::YELLOW);
+
+>foo(Color(1));
+
+>foo(YELLOW);
+---
+
+96) Дан фрагмент кода на языке С++:
+```cpp
+struct One{
+    int x,y;
+} a, b;
+```
+Допустим ли следующий код?
+```cpp
+a = {1, 2};
+b = a;
+```
+>Да, b получит копию полей a;
+
+---
+
+97) Язык С++. Дано перечисление. Выберите все способы получения значения со стандартного ввода.
+```cpp
+enum Color {
+    YELLOW = 0,
+    BLACK = 1,
+    PINK = 2
+} color;
+```
+>```cpp
+>int i;
+>std::cin >> i; // Пользователь вводит число: 0
+>color = static_cast<Color>(i);
+>```
+>```cpp
+>int i;
+>std::cin >> i; // Пользователь вводит число: 0
+>color = Color(i);
+>```
+
+
+---
+
+98) Дан фрагмент кода на языке С++. Что будет напечатано в результате его выполнения?
+```cpp
+struct SomeClass{
+    int i = 0;
+    int j = 0;
+    
+    SomeClass(){
+        i = 10;
+    }
+    
+    SomeClass(int value):SomeClass(){
+        j = value;
+    }
+};
+
+SomeClass obj(10);
+std::cout << obj.i << ' ' << obj.j;
+```
+
+>10 10
+
+---
+
+99) Дан фрагмент кода на языке С++. Что будет напечатано в результате его выполнения?
+```cpp
+struct SomeClass{
+    int i = 0;
+    int j = 0;
+    
+    SomeClass(){
+        i = 10;    
+    }
+    
+    SomeClass(int value){
+        SomeClass();
+        j = value;
+    }
+};
+
+SomeClass obj(10);
+std::cout << obj.i << ' ' << obj.j;
+```
+>0 10
+
+---
+
+100) Дан фрагмент кода на языке С++. Что будет напечатано в результате его выполнения?
+```cpp
+struct SomeClass{
+    int i = 0;
+    
+    SomeClass(int i){
+        i = i;
+    }
+};
+
+SomeClass obj(10);
+std::cout << obj.i;
+```
+>0
+
+---
+
+101) Дан фрагмент кода на языке С++. Что будет напечатано в результате его выполнения?
+```cpp
+struct SomeClass{
+    int i = 0;
+    
+    SomeClass(int i){
+        this->i = i;
+    }
+};
+
+SomeClass obj(10);
+std::cout << obj.i;
+```
+>10
+
+---
+
+102) Дан фрагмент кода на языке С++. Что будет напечатано в результате его выполнения?
+```cpp
+struct SomeClass{
+    int i = 0;
+    
+    SomeClass(int i):i(i){
+    }
+};
+
+SomeClass obj(10);
+std::cout << obj.i;
+```
+>10
+
+---
+
+103) Язык С++. От чего зависит порядок инициализации полей класса, указанных в списке инициализаторов?<br>
+
+>От того, в каком порядке эти поля объявлены
+
+---
+
+104) Дан фрагмент кода на языке С++. Что будет напечатано в результате его выполнения?
+```cpp
+struct SomeClass{
+    const int i = 0;
+    
+    SomeClass(int i):i(i){
+    }
+};
+
+SomeClass obj(10);
+cout << obj.i;
+```
+>10
+
+
+---
+
+105) Дан фрагмент кода на языке С++. Что будет напечатано в результате его выполнения?
+```cpp
+struct SomeClass{
+    const int i = 0;
+    
+    SomeClass(int i){
+        this->i = i;
+    }
+};
+
+SomeClass obj(10);
+std::cout << obj.i;
+```
+>Ошибка
+
+---
+
+106) Дан фрагмент кода на языке С++. Что будет напечатано в результате его выполнения?
+```cpp
+struct SomeClass{
+    int& i;
+    
+    SomeClass(int& i):i(i){
+    }
+};
+
+int i = 0;
+SomeClass obj(i);
+std::cout << obj.i;
+```
+>0
+
+---
+
+107) Дан фрагмент кода на языке С++. Что будет напечатано в результате его выполнения?
+```cpp
+struct SomeClass{
+    int& i;
+    
+    SomeClass(int& i){
+        this->i = i;
+    }
+};
+
+int i = 0;
+SomeClass obj(i);
+std::cout << obj.i;
+```
+>Ошибка
